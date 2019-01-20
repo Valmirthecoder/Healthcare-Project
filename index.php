@@ -1,21 +1,16 @@
-<?php
-	require "header.php";
-?>
-
-<main>
-
-	<?php
-		if (isset($_SESSION['userId'])) {
-				echo '<p> You are logged in!</p>';
-			}
-		else  {
-				echo '<p> You are logged out!</p>';
-			}	
-	?>
-
+<?php 
 	
-</main>
-
-<?php
-	require "footer.php";
+	$page_title = 'Ballina';
+	$stylesheets = '<link rel="stylesheet" href="assets/css/index.css" type="text/css"/>';
+	require_once 'layouts/header.php';  
 ?>
+
+<div class="container">
+    
+    <div class="jumbotron">
+        <h1>Pershendejte, <?php echo $userRow['first_name']; ?></h1>
+        <p>Jeni kyqur ne aplikacionin Healthcare.</p>
+    </div>   
+</div>
+
+<?php require_once 'layouts/footer.php'; ?>
