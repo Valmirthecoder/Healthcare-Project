@@ -1,7 +1,7 @@
 <?php 
-	//Required in all pages
+	
 	$page_title = 'Kërko recetat';
-	$stylesheets = '<link rel="stylesheet" href="assets/css/index.css" type="text/css"/>'; //can be empty. ex: ''
+	$stylesheets = '<link rel="stylesheet" href="assets/css/index.css" type="text/css"/>'; //can be empty. 
 	require_once 'layouts/header.php';  
 	
 	

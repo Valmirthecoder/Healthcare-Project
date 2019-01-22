@@ -11,12 +11,12 @@ if (isset($_POST['signup'])) {
  
     $first_name = trim($_POST['first_name']);
     $last_name 	= trim($_POST['last_name']);
-    $uname = trim($_POST['uname']); // get posted data and remove whitespace
+    $uname = trim($_POST['uname']); // me mar daten edhe mi hek hapesirat
     $email = trim($_POST['email']);
     $upass = trim($_POST['pass']);
-    $role_id = 4;
+    $role_id = 2;
 
-    // hash password with SHA256;
+    // enkriptimi i passit me metoden sha256
     $password = hash('sha256', $upass);
 
     // check email exist or not
@@ -28,19 +28,19 @@ if (isset($_POST['signup'])) {
 
     $count = $result->num_rows;
 
-    if ($count == 0) { // if email is not found add user
+    if ($count == 0) { // nese nje imell e njejte nuk gjendet,shtoje userin
 
 
         $stmts = $conn->prepare("INSERT INTO 
             users(first_name,last_name,username,email,password,role_id) 
             VALUES(?, ?, ?, ?, ?, ?)");
         $stmts->bind_param("ssssss", $first_name, $last_name, $uname, $email, $password, $role_id);
-        $res = $stmts->execute();//get result
+        $res = $stmts->execute();//merre rezultatin
         $stmts->close();
 
         $user_id = mysqli_insert_id($conn);
         if ($user_id > 0) {
-            $_SESSION['user'] = $user_id; // set session and redirect to index page
+            $_SESSION['user'] = $user_id; // vendose sessionin dhe dergoje ne index
             if (isset($_SESSION['user'])) {
                 print_r($_SESSION);
                 header("Location: index.php");

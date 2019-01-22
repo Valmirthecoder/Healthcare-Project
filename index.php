@@ -8,7 +8,7 @@
 <div class="container">
     
     <div class="jumbotron">
-        <h1>Pershendejte, <?php echo $userRow['first_name']; ?></h1>
+        <h1>Pershendetje, <?php echo $userRow['first_name']; ?></h1>
         <p>Jeni kyqur ne aplikacionin Healthcare.</p>
     </div>   
 </div>
