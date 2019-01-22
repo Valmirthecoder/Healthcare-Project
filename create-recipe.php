@@ -38,7 +38,7 @@
 				<h5>Kërko pacientin <code>(API call)</code></h5>
 			</div>
 			<div class="col-md-8"> 
-				<input type="text" name="query" id="query"  class="form-control" placeholder="numri personal i pacientit">  
+				<input type="text" name="query" id="query" class="form-control" placeholder="numri personal i pacientit">  
 			</div>
 			<div class="col-md-4"> 
 				<button class="btn btn-primary d-block" id="searchBtn">Kërko</button> 
@@ -103,17 +103,22 @@
 				</div> 
 			</div>
 		</div>
-		<button type="submit" class="btn btn-primary">Krijo recetën</button>
-		<div class="alert alert-warning d-none" id="createdRecipe">
-		Receta u krijua!
-	</div>
-		
+		<button type="submit" name="submit" id class="btn btn-primary">Krijo recetën</button>
 	</form>
 	
 </div>
 
 <?php require_once 'layouts/footer.php'; ?>
-
+<?php
+	if(isset($_POST['submit'])){
+		echo '<div class="alert alert-warning" >
+		Receta u krijua!
+	</div>';
+	}
+	else{
+		echo '';
+	}
+?>
 <script>
 
 	$('#searchBtn').click(function(){
@@ -134,12 +139,12 @@
 					
 					if(data[0] == "No user where found!") {
 						$('#searchResultsMsg').removeClass('d-none');
-
-					} else {
+					} else 
+					{
 						$("#newRecipeForm input").each(function() { 
 							var input_id = $(this).attr("id"); 
-							$('#createdRecipe').addClass('d-block');
-							$('#'+input_id).val(data[input_id]) 
+							$('#'+input_id).val(data[input_id])
+							 
 						});
 					} 
 				}
