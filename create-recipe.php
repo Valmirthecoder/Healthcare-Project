@@ -38,7 +38,7 @@
 				<h5>Kërko pacientin <code>(API call)</code></h5>
 			</div>
 			<div class="col-md-8"> 
-				<input type="text" name="query" id="query" value="0123456789" class="form-control" placeholder="numri personal i pacientit">  
+				<input type="text" name="query" id="query"  class="form-control" placeholder="numri personal i pacientit">  
 			</div>
 			<div class="col-md-4"> 
 				<button class="btn btn-primary d-block" id="searchBtn">Kërko</button> 
@@ -104,7 +104,12 @@
 			</div>
 		</div>
 		<button type="submit" class="btn btn-primary">Krijo recetën</button>
+		<div class="alert alert-warning d-none" id="createdRecipe">
+		Receta u krijua!
+	</div>
+		
 	</form>
+	
 </div>
 
 <?php require_once 'layouts/footer.php'; ?>
@@ -129,9 +134,11 @@
 					
 					if(data[0] == "No user where found!") {
 						$('#searchResultsMsg').removeClass('d-none');
+
 					} else {
 						$("#newRecipeForm input").each(function() { 
 							var input_id = $(this).attr("id"); 
+							$('#createdRecipe').addClass('d-block');
 							$('#'+input_id).val(data[input_id]) 
 						});
 					} 
