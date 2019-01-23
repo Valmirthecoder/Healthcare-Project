@@ -44,7 +44,7 @@ if (isset($_POST['btn-login'])) {
 <body>
 
 <div class="container">
-
+<img src="layouts/healthcare.png" class="rounded mx-auto d-block">
 
     <div id="login-form">
         <form method="post" autocomplete="off">
