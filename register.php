@@ -11,15 +11,15 @@ if (isset($_POST['signup'])) {
  
     $first_name = trim($_POST['first_name']);
     $last_name 	= trim($_POST['last_name']);
-    $uname = trim($_POST['uname']); // me mar daten edhe mi hek hapesirat
+    $uname = trim($_POST['uname']);
     $email = trim($_POST['email']);
     $upass = trim($_POST['pass']);
     $role_id = 2;
 
-    // enkriptimi i passit me metoden sha256
+    
     $password = hash('sha256', $upass);
 
-    // check email exist or not
+    
     $stmt = $conn->prepare("SELECT email FROM users WHERE email=?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -35,12 +35,12 @@ if (isset($_POST['signup'])) {
             users(first_name,last_name,username,email,password,role_id) 
             VALUES(?, ?, ?, ?, ?, ?)");
         $stmts->bind_param("ssssss", $first_name, $last_name, $uname, $email, $password, $role_id);
-        $res = $stmts->execute();//merre rezultatin
+        $res = $stmts->execute();
         $stmts->close();
 
         $user_id = mysqli_insert_id($conn);
         if ($user_id > 0) {
-            $_SESSION['user'] = $user_id; // vendose sessionin dhe dergoje ne index
+            $_SESSION['user'] = $user_id; 
             if (isset($_SESSION['user'])) {
                 print_r($_SESSION);
                 header("Location: index.php");
@@ -69,6 +69,7 @@ if (isset($_POST['signup'])) {
 <body>
 
 <div class="container">
+    <img src="layouts/healthcare.png" class="rounded mx-auto d-block">
 
     <div id="login-form">
         <form method="post" autocomplete="off">
