@@ -45,7 +45,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `middle_name`, `last_name`, `personal_nr`, `address`, `phone`, `email`) VALUES
 (2, 'Valmir', '', 'Haxholli', '1111111111', 'Aleks Buda', 44111111, 'valmir.haxholli@student.cacttus.education'),
-(9, 'Albin', 'bini', 'Ajeti', '2222222222', 'Bregu i Diellit', 442221111, 'albini@gmail.com');
+(9, 'Albin', 'bini', 'Ajeti', '2222222222', 'Bregu i Diellit', 442221111, 'albini@gmail.com'),
+(3, 'test', 'bini', 'testi', '0000000000', 'Bregu i Diellit', 44333222, 'test@gmail.com');
 
 --
 -- Indexes for dumped tables
